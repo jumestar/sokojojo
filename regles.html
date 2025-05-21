@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Josias">
+    <title>Sokojojo! - Regles</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    <link rel="icon" href="logo.ico" type="image/x-icon">
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="index.html">
+                <img src="sokojojo.png" alt="Logo de Sokojojo" class="logo">
+            </a>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="regles.html">Règles</a></li>
+                <li><a href="credits.html">Crédits</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="regles">
+            <h2 class="neon-titre">REGLES DU JEU</h2>
+            <p>Sokojojo est un jeu de réflexion où le joueur incarne un personnage chargé de déplacer des caisses
+                sur des emplacements cibles dans un entrepôt. L'objectif est de placer toutes les caisses sur les emplacements
+                désignés en un minimum de mouvements.</p>
+
+            <br>
+            <h3>ELEMENTS DU JEU</h3>
+            <br>
+            <ul>
+                <li>Le joueur : représenté généralement par un petit personnage.</li>
+                <li>Les murs : obstacles fixes que le joueur ne peut ni traverser ni déplacer.</li>
+                <li>Les caisses : blocs que le joueur peut pousser, mais pas tirer.</li>
+                <li>Les emplacements cibles : positions spécifiques où les caisses doivent être déposées.</li>
+            </ul>
+
+            <br>
+            <h3>REGLES DE DEPLACEMENT</h3>
+            <br>
+            <ul>
+                <li>Le joueur peut se déplacer horizontalement ou verticalement (haut, bas, gauche, droite).</li>
+                <li>Le joueur peut pousser une seule caisse à la fois s'il se déplace vers elle et qu'il y a un espace libre derrière.</li>
+                <li>Le joueur ne peut pas :
+                    <ul>
+                        <li>Traverser les murs ou les caisses.</li>
+                        <li>Pousser plusieurs caisses en même temps.</li>
+                        <li>Tirer les caisses.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <br>
+            <h3>OBJECTIF</h3>
+            <br>
+            <ul>
+                <li>Le joueur doit placer toutes les caisses sur les emplacements cibles.</li>
+                <li>Une partie est considérée comme gagnée lorsque chaque caisse repose exactement sur un emplacement cible.</li>
+            </ul>
+
+            <br>
+            <h3>DEFAITE</h3>
+            <br>
+            <ul>
+                <li>Si le joueur se retrouve bloqué car il pousse une caisse dans un coin ou contre un mur où il est impossible de la bouger ensuite il a perdu.</li>
+                <li>La réflexion est nécessaire pour éviter de bloquer l’accès aux caisses ou aux emplacements cibles.</li>
+            </ul>
+            <br>
+            <h3>CONTROLES</h3>
+            <br>
+    
+            <div style="display: flex; align-items: flex-start; gap: 20px;">
+                <img src="fleches.png" alt="img" width="150" height="150">
+                <div>
+                    <p>Utilisez les touches directionnelles pour déplacer le personnage dans les quatre directions.</p>
+                    <p>Vous pouvez pousser les caisses en vous déplaçant vers elles, mais attention:</p>
+                    <ul>
+                        <li>Vous ne pouvez pousser qu'une caisse à la fois</li>
+                        <li>Vous ne pouvez pas tirer les caisses</li>
+                        <li>Une caisse bloquée contre un mur ou une autre caisse ne peut plus être bougée dans cette direction</li>
+                    </ul>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        © SOKOJOJO! 2025 Tous droits réservés. Le concept original de Sokoban a été créé par Hiroyuki Imabayashi en 1981.
+    </footer>
+</body>
+
+</html>
