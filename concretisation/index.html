@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Josias">
+    <title>Sokojojo! - Accueil</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    <link rel="icon" href="logo.ico" type="image/x-icon">
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="index.html">
+                <img src="sokojojo.png" alt="Logo de Sokojojo" class="logo">
+            </a>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="regles.html">Règles</a></li>
+                <li><a href="credits.html">Crédits</a></li>
+            </ul>
+        </nav>
+    </header>
+
+   <section class="accueil">
+    <h1 class="neon-titre">SOKOJOJO!</h1>
+
+    <div class="centre">
+        Un sokoban classique réimaginé en C++ avec SFML. Poussez des caisses, résolvez des énigmes et défiez votre logique !
+    </div>
+    <br>
+    <div style="text-align: center; margin-top: 20px;">
+        <a href="SOKOJOJO--main.zip" download="Sokojojo.zip" class="neon-border">JOUER</a>
+    </div>
+       <div style="text-align: center; margin-top: 20px;">
+        <img src="baton.png" alt="img">
+    </div>
+    </section>
+
+    <main>
+        <div class="contenant">
+            <div class="section">
+                <br>
+                <h3>Niveaux variés</h3>
+                <br>
+                <p>Découvrez de nombreux niveaux de difficulté croissante pour mettre vos compétences de résolution de problèmes à l'épreuve.</p>
+            </div>
+
+            <div class="section">
+                <br>
+                <h3>Graphismes soignés</h3>
+                <br>
+                <p>Profitez d'une expérience visuelle plaisante avec des graphismes rétro mais détaillés et des animations fluides.</p>
+            </div>
+
+            <div class="section centre">
+                <br>
+                <h3>Gameplay simple</h3>
+                <br>
+                <p>Simple à comprendre mais difficile à maîtriser, chaque niveau offre un nouveau défi à surmonter.</p>
+            </div>
+        </div>
+        <br>
+        <section id="projet">
+            <h2 class="neon-titre">Comment a été fait le projet</h2>
+            <br>
+
+            <h3>TECHNOLOGIES</h3>
+            <br>
+            <ul>
+                <li>Langage: C++17</li>
+                <li>Bibliothèque graphique: SFML 2.6.2</li>
+                <li>Environnement: Visual Studio / CMake</li>
+                <li>Gestion de versions: Git</li>
+            </ul>
+
+            <br>
+            <h3>FONCTIONNALITÉS</h3>
+            <br>
+            <ul>
+                <li>Moteur de rendu basé sur SFML</li>
+                <li>Système de collision et déplacement</li>
+                <li>Chargement de niveaux depuis des fichiers</li>
+                <li>Détection de victoire automatique</li>
+                <li>Effets sonores et musique</li>
+            </ul>
+
+            <br>
+            <h3>ARCHITECTURE</h3>
+            <br>
+            <p>Le jeu est organisé selon le principe de séparation des responsabilités :</p>
+            <ul>
+                <li>Game.cpp/h: Logique principale du jeu</li>
+                <li>Carte.cpp/h: Gestion de la carte</li>
+                <li>Joueur.cpp/h: Contrôle du joueur</li>
+                <li>Ai.cpp/h: Developpement de l'intelligence artificielle</li>
+                <li>Menu.cpp/h: Gestion du menu de jeu</li>
+                <li>Main.cpp: Point d'entrée du programme</li>
+            </ul>
+
+            <br>
+            <h3>LOGIQUE DE JEU</h3>
+            <br>
+            <p>Le déplacement dans Sokoban est géré par une grille 2D où chaque élément (mur, caisse, point de destination)
+                est représenté par une valeur différente. Les collisions et la détection de victoire sont vérifiées après chaque action du joueur.</p>
+            <br>
+            <h3>IA</h3>
+            <br>
+            <p>Sokojojo contient une intelligence artificielle capable de résoudre les niveaux que l'on peut appeler grace a la touche i.</p>
+            <br>
+            <h4>Intelligence Artificielle pour Sokoban</h4>
+            <p>Dans cette version de Sokoban, une intelligence artificielle a été intégrée afin de résoudre automatiquement les niveaux. L’objectif de cette IA est de guider le joueur pour pousser les boîtes vers leurs emplacements cibles en évitant les erreurs irrécupérables (comme bloquer une boîte dans un coin).</p>
+            <br>
+            <h4>Fonctionnement de l’algorithme</h4>
+            <p>L’IA repose sur une recherche informée utilisant l’algorithme A* (A-star). Voici les composants principaux :</p>
+            <br>
+            <h4>Représentation de l’état du jeu</h4>
+            <p>Chaque état est défini par :</p>
+            <ul>
+                <li>La position du joueur (<code>sf::Vector2i joueur</code>)</li>
+                <li>La position de toutes les boîtes (<code>std::vector&lt;sf::Vector2i&gt; boites</code>)</li>
+            </ul>
+            <p>Les états sont comparables et hachables afin d’éviter les redondances et accélérer la recherche.</p>
+            <br>
+            <h4>Heuristique</h4>
+            <p>L’heuristique estimée correspond à la somme des distances de Manhattan entre chaque boîte et son objectif le plus proche. Cela permet de prioriser les états qui paraissent plus prometteurs.</p>
+
+            <pre><code>int heuristique(const std::vector&lt;sf::Vector2i&gt;& boites) const {
+                int h = 0;
+                for (const auto&amp; b : boites) {
+                    int minDist = 100000;
+                    for (const auto&amp; o : objectifs_) {
+                        minDist = std::min(minDist, std::abs(b.x - o.x) + std::abs(b.y - o.y));
+                    }
+                    h += minDist;
+                }
+                return h;
+            }
+            </code></pre>
+            <br>
+            <h4>Boucle de recherche (A*)</h4>
+            <p>La recherche se fait avec une <code>priority_queue</code> qui trie les états par coût + heuristique. Elle explore toutes les possibilités de déplacement du joueur, avec ou sans poussée de boîte.</p>
+            <pre><code>using Noeud = std::tuple&lt;int, int, Etat, std::vector&lt;Direction&gt;&gt;;
+            std::priority_queue&lt;Noeud, std::vector&lt;Noeud&gt;, std::greater&lt;&gt;&gt; open;
+            </code></pre>
+            <p>Chaque mouvement valide est simulé et inséré dans la file de priorité si l’état résultant n’a pas encore été exploré.</p>
+            <br>
+            <h4>Résultat</h4>
+            <p>La fonction <code>AI::resoudre()</code> retourne un <code>std::optional&lt;std::vector&gt;</code>, c’est-à-dire une séquence de déplacements pour atteindre la solution si elle existe, ou <code>std::nullopt</code> si aucun chemin n’a été trouvé.</p>
+            <pre><code>std::optional&lt;std::vector&lt;Direction&gt;&gt; AI::resoudre();
+            </code></pre>
+            <br>
+            <h4>Détection de situations bloquées</h4>
+            <p>Si aucune solution n’est trouvée pour une combinaison initiale de boîtes, un léger « shuffle » est effectué sur les boîtes pour tenter une autre approche (option expérimentale, à améliorer).</p>
+            <br>
+            <h4>Affichage et suivi</h4>
+            <p>Chaque mouvement effectué par l’IA est animé visuellement dans le jeu avec un délai de 200ms, et un compteur de coups est mis à jour à chaque action.</p>
+            <br>
+        </section>
+
+    </main>
+
+    <footer>
+        © SOKOJOJO! 2025 Tous droits réservés. Le concept original de Sokoban a été créé par Hiroyuki Imabayashi en 1981.
+    </footer>
+</body>
+
+</html>

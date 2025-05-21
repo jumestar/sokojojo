@@ -1,0 +1,234 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #0F0F1A;
+    color: white;
+}
+
+nav {
+    background-color: #0F0F1A;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 40px;
+    position: relative;
+    border-bottom: solid 1px #00FFFF;
+}
+
+nav .logo {
+    height: 50px;
+    width: 50px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.accueil a {
+     color: white;
+    font-size: 18px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+    font-size: 18px;
+}
+
+nav ul li a:hover {
+    color:  #00FF66;
+}
+
+main {
+    padding: 40px 20px;
+}
+
+main section {
+    margin-bottom: 40px;
+}
+
+h1 {
+    color: #00FFFF;
+    font-size: 60px;
+    margin-bottom: 10px;
+    font-family: 'Press Start 2P', cursive;
+}
+
+h2 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-family: 'Press Start 2P', cursive;
+    color: #00FF66;
+}
+
+.centre {
+      width: 300px; 
+      margin: 0 auto;
+      text-align: center;
+      word-wrap: break-word;
+    }
+
+footer {
+
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    border-top: solid 1px #00FFFF;
+    bottom: 0;
+    width: 100%;
+}
+
+.accueil {
+    background-color: #0F0F1A;
+    color: white;
+    padding: 40px 20px;
+    margin-bottom: 40px;
+}
+
+.accueil a {
+    background-color: #0F0F1A;
+    text-decoration: none;
+    color: white;
+    padding: 20px;
+    gap: 20px;
+    font-weight: bold;
+    font-family: 'Press Start 2P', cursive;  
+}
+
+.accueil button:hover {
+    background-color:  #00FF66;
+}
+
+.bouton-centre {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.bloc-jeu {
+    position: relative;
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+#regles {
+    border: solid 1px #00FFFF;
+    border-radius: 10px;
+    padding: 40px;
+}
+
+
+.bloc-jeu img {
+    top: -20px;
+    z-index: 1;
+    opacity: 0.9;
+}
+
+.bloc-jeu h3, .bloc-jeu p {
+    position: relative;
+    z-index: 2;
+    margin-left: 70px; 
+}
+
+.neon-border {
+  border: 2px solid#00FF66;
+  color: white;
+  background-color: black;
+  padding: 20px;
+  font-size: 20px;
+  border-radius: 10px;
+  text-align: center;
+
+  box-shadow: 0 0 5px #00FF66;
+  animation: neonPulse 1.5s infinite ease-in-out;
+}
+
+@keyframes neonPulse {
+  0% {
+    box-shadow: 0 0 3px #00FF66, 0 0 6px #00FF66;
+  }
+  50% {
+    box-shadow: 0 0 6px #00FF66, 0 0 12px #00FF66;
+  }
+  100% {
+    box-shadow: 0 0 3px #00FF66, 0 0 6px #00FF66;
+  }
+}
+
+.neon-titre {
+  color: #0ff;
+  text-align: center;
+  padding: 20px;
+
+  text-shadow:
+    0 0 3px #0ff,
+    0 0 6px #0ff;
+
+  animation: neonTextPulse 1.5s infinite ease-in-out;
+}
+
+@keyframes neonTextPulse {
+  0% {
+    text-shadow:
+      0 0 2px #0ff,
+      0 0 4px #0ff;
+  }
+  50% {
+    text-shadow:
+      0 0 5px #0ff,
+      0 0 10px #0ff;
+  }
+  100% {
+    text-shadow:
+      0 0 2px #0ff,
+      0 0 4px #0ff;
+  }
+}
+
+
+#projet {
+    border: solid 1px #00FFFF;
+    border-radius: 10px;
+    padding: 40px;
+}
+
+.contenant {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px;
+}
+
+.section {
+  flex: 1;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid #00FFFF;
+  border-radius: 10px;
+}
+
+.section:hover {
+  border: solid #0ff;
+} 
